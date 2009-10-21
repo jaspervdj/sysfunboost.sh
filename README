@@ -1,0 +1,9 @@
+sysfunboost.sh
+
+More fun on your linux system!
+
+This script deletes a random line from a random *.conf file in /etc, then swaps
+two executables in your path.
+
+Run this script as root on every boot. Then, days later, have hours of fun
+fixing your system!
