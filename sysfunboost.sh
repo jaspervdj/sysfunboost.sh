@@ -14,7 +14,7 @@ function random_executable(){
 FILE_NAME=$(find /etc -name '*.conf' | random_line)
 LINES=$(cat "$FILE_NAME" | wc -l)
 LINE_TO_DELETE=$(expr $RANDOM % $LINES + 1)
-sed -n "$LINE_TO_DELETE!p" $FILE_NAME > "$TEMP_FILE"
+sed "$LINE_TO_DELETEd" $FILE_NAME > "$TEMP_FILE"
 mv "$TEMP_FILE" "$FILE_NAME"
 
 # Take two random executables and swap them
