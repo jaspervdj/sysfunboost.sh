@@ -11,7 +11,7 @@ function random_executable(){
 }
 
 # Delete random line from a *.conf file in /etc
-FILE_NAME=$(find /etc -name '*.conf' | random_line)
+FILE_NAME=$(find /etc -name '*.conf' -type f | random_line)
 LINES=$(cat "$FILE_NAME" | wc -l)
 LINE_TO_DELETE=$(expr $RANDOM % $LINES + 1)
 sed "$LINE_TO_DELETEd" $FILE_NAME > "$TEMP_FILE"
