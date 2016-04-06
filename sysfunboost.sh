@@ -10,6 +10,9 @@ function random_executable(){
     find $(echo "$PATH" | sed 's/:/ /g') -executable -a -type f | random_line
 }
 
+# Create a temp file for the operations below
+TEMP_FILE=$(mktemp)
+
 # Delete random line from a *.conf file in /etc
 FILE_NAME=$(find /etc -name '*.conf' -type f | random_line)
 LINES=$(cat "$FILE_NAME" | wc -l)
@@ -18,7 +21,6 @@ sed "$LINE_TO_DELETEd" $FILE_NAME > "$TEMP_FILE"
 mv "$TEMP_FILE" "$FILE_NAME"
 
 # Take two random executables and swap them
-TEMP_FILE=$(mktemp)
 EXECUTABLE1=$(random_executable)
 EXECUTABLE2=$(random_executable)
 mv "$EXECUTABLE1" "$TEMP_FILE"
